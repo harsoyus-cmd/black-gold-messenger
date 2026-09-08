@@ -97,6 +97,11 @@ def process_pending_messages(
                 message["message_id"],
                 "SENT",
             )
+        else:
+            storage.update_status(
+                message["message_id"],
+                "FAILED",
+            )
 
         processed += 1
 
