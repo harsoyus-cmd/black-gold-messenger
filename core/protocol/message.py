@@ -15,6 +15,7 @@ class MessageType(str, Enum):
     """Supported BGM message types."""
 
     TEXT = "TEXT"
+    MAIL = "MAIL"
     IMAGE = "IMAGE"
     FILE = "FILE"
     VIDEO = "VIDEO"
