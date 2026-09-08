@@ -41,6 +41,16 @@ from .replay import (
     BGMReplayState,
 )
 
+from .secure_session import (
+    SECURE_SESSION_PROTOCOL_VERSION,
+    HANDSHAKE_MESSAGE_TYPE,
+    BGMSessionHandshake,
+    create_handshake,
+    verify_handshake,
+    derive_handshake_secret,
+    create_session_from_handshake,
+)
+
 __all__ = [
     "CRYPTO_PROTOCOL_VERSION",
     "CryptoKey",
@@ -69,4 +79,11 @@ __all__ = [
     "derive_session_key",
     "REPLAY_PROTOCOL_VERSION",
     "BGMReplayState",
+    "SECURE_SESSION_PROTOCOL_VERSION",
+    "HANDSHAKE_MESSAGE_TYPE",
+    "BGMSessionHandshake",
+    "create_handshake",
+    "verify_handshake",
+    "derive_handshake_secret",
+    "create_session_from_handshake",
 ]
