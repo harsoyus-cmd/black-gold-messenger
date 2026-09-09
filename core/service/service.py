@@ -12,6 +12,9 @@ from core.storage import BGMStorage
 from core.text import create_text_message
 from core.mail import create_secure_mail_message
 from core.media import create_media_message
+from core.world import BGMWorld
+from core.translation import BGMTranslationService
+from core.radio import BGMRadioDirectory
 
 class BGMService:
     """
@@ -34,6 +37,9 @@ class BGMService:
         self.storage = storage
         self.identity = identity
         self.network = network
+        self.world = BGMWorld()
+        self.translation_service = None
+        self.radio_directory = BGMRadioDirectory()
 
     def initialize(self) -> None:
         """Initialize required local service storage."""
@@ -159,6 +165,28 @@ class BGMService:
             raise ValueError("limit must be greater than zero.")
 
         return self.storage.get_pending_messages(limit=limit)
+
+    def get_world(self) -> BGMWorld:
+        return self.world
+
+    def set_translation_service(
+        self,
+        service: BGMTranslationService,
+    ) -> None:
+        if not isinstance(service, BGMTranslationService):
+            raise TypeError(
+                "service must be a BGMTranslationService."
+            )
+
+        self.translation_service = service
+
+    def get_translation_service(
+        self,
+    ) -> BGMTranslationService | None:
+        return self.translation_service
+
+    def get_radio_directory(self) -> BGMRadioDirectory:
+        return self.radio_directory
 
     def get_identity(self) -> BGMIdentity:
         """Return the configured BGM identity."""
