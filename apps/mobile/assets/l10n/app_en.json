@@ -1,0 +1,7 @@
+{
+  "appTitle": "Black Gold Messenger",
+  "chatPlaceholder": "Type an encrypted message...",
+  "translateButton": "Translate",
+  "hybridModeStatus": "Routing via {mode}",
+  "autoDeleteNotice": "Auto-purge enabled: {days} days retention"
+}
